@@ -15,6 +15,8 @@
   (curve-steps 100))
 
 (defmacro with-pen (pen &body body)
+  "Sets environment's pen to `PEN' for all of its enclosed forms.
+Nesting is allowed."
   (alexandria:once-only (pen)
     `(alexandria:with-gensyms (previous-pen)
        (progn
@@ -24,11 +26,11 @@
 	 (setf (env-pen *env*) previous-pen)))))
 
 (defun set-pen (pen)
-  "Sets environment pen to PEN."
+  "Sets environment's pen to `PEN'."
   (setf (env-pen *env*) pen))
 
 (defun flip-pen (pen)
-  "Makes a new pen by swapping PEN's fill and stroke colors."
+  "Makes a new pen by swapping `PEN''s fill and stroke colors."
   (make-pen :weight (pen-weight pen)
 	    :stroke (pen-fill pen)
 	    :fill (pen-stroke pen)
@@ -36,12 +38,13 @@
 	    :curve-steps (pen-curve-steps pen)))
 
 (defun background (color)
-  "Fills the sketch window with COLOR."
+  "Fills the sketch window with `COLOR'."
   (apply #'gl:clear-color (color-rgba color))
   (gl:clear :color-buffer))
 
 (let ((pen))
   (defun make-default-pen ()
+    "Creates the default pen with `+WHITE+' fill and `+BLACK' stroke."
     (setf pen (or pen
 		  (make-pen :weight 1
 			    :fill +white+

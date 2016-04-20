@@ -7,10 +7,24 @@
 ;;; | |   | |_| | / _ \ |  \| |  \| |  _| | |   \___ \
 ;;; | |___|  _  |/ ___ \| |\  | |\  | |___| |___ ___) |
 ;;;  \____|_| |_/_/   \_\_| \_|_| \_|_____|_____|____/
+;;;
+;;; * Introduction
+;;;
+;;; Channels are used for moving data between architecturally separate outputs and inputs.
+;;; They enhance the concept of global variables by using their own namespace, and more
+;;; importantly, by being observable. Observability allows users to write code that gets
+;;; called each time a selected set of channels is updated.
+;;;
+;;; Although the inspiration for channels comes from Linda language and tuple spaces,
+;;; Go channels, named pipes, Functional Reactive Programming and the Observer pattern,
+;;; you shouldn't expect 100% compatibility with any of those.
+;;;
+;;; *
 
 ;;; Channel interface
 
-(defparameter *channels* (make-hash-table))
+(defparameter *channels* (make-hash-table)
+  "A hash table in which all channel values are kept internally.")
 
 (defun register-input (channel &optional initial (adapter #'identity))
   (unless (assoc adapter (gethash channel *channels*))

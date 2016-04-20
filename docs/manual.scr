@@ -1,0 +1,19 @@
+@begin(section)
+@title(Overview)
+
+Sketch is a Common Lisp framework for the creation of electronic art, visual design, game prototyping and making, computer graphics, exploration of human-computer interaction, and more.
+
+@begin(section)
+@title(Pen)
+
+
+@cl:with-package[name="sketch"](
+@cl:doc(macro with-pen)
+@cl:doc(function set-pen)
+@cl:doc(function flip-pen)
+@cl:doc(function background)
+@cl:doc(function make-default-pen)
+)
+
+@end(section)
+@end(section)

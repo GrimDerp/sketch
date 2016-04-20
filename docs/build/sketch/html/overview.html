@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+  Overview &ndash; Sketch
+</title>
+    <link rel="stylesheet" href="static/style.css"/>
+    
+  <link rel="stylesheet" href="static/highlight.css"/>
+  <script src="static/highlight.js"></script>
+  <style>
+   /* Highlight the current top-level TOC item, and hide the TOC of all other items */
+
+   .toc a[data-node="overview"] {
+       /*color: #AD3108;*/
+   }
+
+   .toc ol {
+       display: none;
+   }
+
+   .toc li a[data-node="overview"] {
+       font-weight: bold;
+   }
+
+   .toc li a[data-node="overview"] + ol {
+       display: block;
+   }
+
+   .toc li a[data-node="overview"] + ol li {
+       margin-left: 10px;
+   }
+  </style>
+
+  </head>
+  <body>
+    
+  <h1 class="doc-title">Sketch</h1>
+  <article id="article" data-section="overview">
+    <aside>
+      <ol class="toc"><li><a href="overview.html" data-node="overview">Overview</a></li></ol>
+    </aside>
+    <main class="codex-section">
+      <header>
+        <h2 class="section-title">Overview</h2>
+      </header>
+      <div class="content">
+        <p>Sketch is a Common Lisp framework for the creation of electronic art, visual design, game prototyping and making, computer graphics, exploration of human-computer interaction, and more.</p><p>
+<div class="codex-doc-node codex-operator codex-macro"><code class="codex-name">with-pen</code><code class="codex-lambda-list">(pen &amp;body body)</code><div class="codex-docstring">Sets environment's pen to `PEN' for all of its enclosed forms.
+Nesting is allowed.</div></div>
+<div class="codex-doc-node codex-operator codex-function"><code class="codex-name">set-pen</code><code class="codex-lambda-list">(pen)</code><div class="codex-docstring">Sets environment's pen to `PEN'.</div></div>
+<div class="codex-doc-node codex-operator codex-function"><code class="codex-name">flip-pen</code><code class="codex-lambda-list">(pen)</code><div class="codex-docstring">Makes a new pen by swapping `PEN''s fill and stroke colors.</div></div>
+<div class="codex-doc-node codex-operator codex-function"><code class="codex-name">background</code><code class="codex-lambda-list">(color)</code><div class="codex-docstring">Fills the sketch window with `COLOR'.</div></div>
+<div class="codex-doc-node codex-operator codex-function"><code class="codex-name">make-default-pen</code><code class="codex-lambda-list">nil</code><div class="codex-docstring">Creates the default pen with `+WHITE+' fill and `+BLACK' stroke.</div></div>
+
+</p>
+      </div>
+    </main>
+  </article>
+  <footer>
+    <div class="info">
+      Created with <a href="https://github.com/CommonDoc/codex">Codex</a>.
+    </div>
+  </footer>
+  <script>
+   HighlightLisp.highlight_auto();
+  </script>
+
+  </body>
+</html>
